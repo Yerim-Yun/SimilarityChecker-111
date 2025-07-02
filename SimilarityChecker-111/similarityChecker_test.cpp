@@ -21,6 +21,15 @@ TEST(TG, TCDiffDoubleLength) {
 	EXPECT_EQ(0, actual);
 }
 
+TEST(TG, TCDiffPartialLength) {
+	Checker checker;
+	string str1 = "AAABB";
+	string str2 = "BAA";
+
+	int actual = checker.getLengthPoints(str1, str2);
+	EXPECT_EQ(20, actual);
+}
+
 int main() {
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();
