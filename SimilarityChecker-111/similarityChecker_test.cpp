@@ -4,29 +4,22 @@
 using namespace testing;
 
 TEST(TG, TCSameLength) {
-	Checker checker;
-	string str1 = "ABCDE";
-	string str2 = "EDCBA";
-	
-	int actual = checker.getLengthPoints(str1, str2);
+	Checker checker{ "ABCDE" , "EDCBA" };
+	int actual = checker.getLengthPoints();
 	EXPECT_EQ(60, actual);
 }
 
 TEST(TG, TCDiffDoubleLength) {
-	Checker checker;
-	string str1 = "ABCD";
-	string str2 = "ED";
+	Checker checker{ "ABCD" , "ED" };
 
-	int actual = checker.getLengthPoints(str1, str2);
+	int actual = checker.getLengthPoints();
 	EXPECT_EQ(0, actual);
 }
 
 TEST(TG, TCDiffPartialLength) {
-	Checker checker;
-	string str1 = "AAABB";
-	string str2 = "BAA";
+	Checker checker{ "AAABB" , "BAA" };
 
-	int actual = checker.getLengthPoints(str1, str2);
+	int actual = checker.getLengthPoints();
 	EXPECT_EQ(20, actual);
 }
 
