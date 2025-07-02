@@ -10,7 +10,7 @@ public:
 	int getPartialPoints(int gap, int minLeng) {
 		return (1 - (double)gap / minLeng) * 60;
 	}
-
+private:
 	int getLengthPoints() {
 		int lengthStr1 = str1.length();
 		int lengthStr2 = str2.length();
@@ -19,14 +19,16 @@ public:
 		int gap = maxLength - minLength;
 
 		if (lengthStr1 == lengthStr2)
-			return 60;
+			return MAX_LENGTH_POINT;
 		else if(maxLength >= (minLength * 2))
-			return 0;
+			return MIN_LENGTH_POINT;
 		else {
 			return getPartialPoints(gap, minLength);
 		}
 	}
-private:
+	const int MAX_LENGTH_POINT = 60;
+	const int MIN_LENGTH_POINT = 60;
+
 	string str1;
 	string str2;
 };
